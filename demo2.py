@@ -10,7 +10,11 @@ driver.maximize_window()
 driver.find_element_by_id("account").send_keys("liuyun")
 driver.find_element_by_name("password").send_keys("a12345678")
 driver.find_element_by_id("submit").click()
-time.sleep(5)
+#等待网页加载完成
+# time.sleep(5)
+
+#如果网页在3秒加载完,剩下2秒跳过不等待
+driver.implicitly_wait(5)
 # 标题断言
 # assert driver.title == "我的地盘 - 禅道"
 # print("测试成功")
