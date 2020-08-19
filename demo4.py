@@ -1,18 +1,15 @@
-import time
 from selenium import webdriver
-
-driver = webdriver.Chrome(executable_path='chromedriver.exe')
-driver.get("http://qk.mrhkj.com/admin/common/login.html")
+import time
+#1.打开浏览器：实例化driver句柄(把柄)，Chrome：大写的c
+driver = webdriver.Chrome(executable_path = "chromedriver.exe")
+driver.get("http://passport2.eastmoney.com/pub/login")
+#浏览器最大化
 driver.maximize_window()
 
+#切换到小网页
+frame = driver.find_element_by_id("frame_login")
+driver.switch_to_frame(frame)
 
-# 1. 获取已经登录的cookie
-# time.sleep(20)
-# print(driver.get_cookies())
-
-# 2. 删除之前原有的cookie，并添加已经登录的cookie
-driver.delete_all_cookies()  # 删除cookie
-cookie = {'domain': 'qk.mrhkj.com', 'httpOnly': True, 'name': 'PHPSESSID',
-          'path': '/', 'secure': False, 'value': 'tsfihj01gf62880v0jbsh238rm'}
-driver.add_cookie(cookie)   # 添加已经登录的cookie
-driver.refresh()            # 刷新
+driver.find_element_by_id("txt_mobile").send_keys("123")
+#切换到大网页
+driver.switch_to_default_content()
