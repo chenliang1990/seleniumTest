@@ -25,7 +25,7 @@ driver = webdriver.Chrome(executable_path = "chromedriver.exe")
 # driver.find_element_by_id("su").click()
 #超链接专用定位方式
 # driver.find_element_by_link_text('高考加油').click()
-# driver.find_element_by_partial_link_text'高考加).click()
+# driver.find_element_by_partial_link_text('高考加').click()
 
 #标签定位(基本不用)
 # driver.find_element_by_tag_name("input")
